@@ -1,0 +1,1074 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000; min-height: 16.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="cs"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;title&gt;PRIM B71 Vibrograph&lt;/title&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;style&gt;</span></p>
+<p class="p1"><span class="s1">* {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: #101010;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #eee;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width: 900px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 12px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 22px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 5px 0 15px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.controls {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gap: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>flex-wrap: wrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 12px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: #ddd;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #111;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 7px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 11px 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 15px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">button:disabled {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>opacity: .4;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.stats {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>grid-template-columns: repeat(4, 1fr);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gap: 7px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.stat {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: #1c1c1c;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.label {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #999;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 11px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.value {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 22px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-top: 4px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">canvas {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 300px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: #050505;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 8px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.status {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-top: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #aaa;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 14px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.info {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-top: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #777;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 12px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">@media(max-width:600px) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.stats {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>grid-template-columns: repeat(2, 1fr);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>height: 250px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="container"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;h1&gt;PRIM B71 — Vibrograph&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="controls"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;button id="start"&gt;</span></p>
+<p class="p1"><span class="s1">🎤 Spustit mikrofon</span></p>
+<p class="p1"><span class="s1">&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;button id="stop" disabled&gt;</span></p>
+<p class="p1"><span class="s1">■ Zastavit</span></p>
+<p class="p1"><span class="s1">&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;button id="reset"&gt;</span></p>
+<p class="p1"><span class="s1">↺ Reset</span></p>
+<p class="p1"><span class="s1">&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="stats"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="stat"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="label"&gt;RATE&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="value" id="rate"&gt;—&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="stat"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="label"&gt;BEAT ERROR&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="value" id="beatError"&gt;—&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="stat"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="label"&gt;SIGNAL&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="value" id="signal"&gt;—&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="stat"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="label"&gt;QUALITY&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="value" id="quality"&gt;—&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;canvas id="graph"&gt;&lt;/canvas&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="status" id="status"&gt;</span></p>
+<p class="p1"><span class="s1">Mikrofon není spuštěný.</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="info"&gt;</span></p>
+<p class="p1"><span class="s1">PRIM B71: 14 000 A/h · nominální interval 257,14 ms</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">"use strict";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">==========================================================</span></p>
+<p class="p1"><span class="s1">PRIM B71 VIBROGRAPH</span></p>
+<p class="p1"><span class="s1">Telefonní mikrofon → Web Audio API → detekce tik/tak</span></p>
+<p class="p1"><span class="s1">==========================================================</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">const NOMINAL_PERIOD = 3600000 / 14000;</span></p>
+<p class="p1"><span class="s1">// 257.142857 ms</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">const MIN_INTERVAL = 120;</span></p>
+<p class="p1"><span class="s1">const MAX_INTERVAL = 400;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">const graph = document.getElementById("graph");</span></p>
+<p class="p1"><span class="s1">const ctx = graph.getContext("2d");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">const startButton = document.getElementById("start");</span></p>
+<p class="p1"><span class="s1">const stopButton = document.getElementById("stop");</span></p>
+<p class="p1"><span class="s1">const resetButton = document.getElementById("reset");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">const rateElement = document.getElementById("rate");</span></p>
+<p class="p1"><span class="s1">const beatElement = document.getElementById("beatError");</span></p>
+<p class="p1"><span class="s1">const signalElement = document.getElementById("signal");</span></p>
+<p class="p1"><span class="s1">const qualityElement = document.getElementById("quality");</span></p>
+<p class="p1"><span class="s1">const statusElement = document.getElementById("status");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let audioContext = null;</span></p>
+<p class="p1"><span class="s1">let analyser = null;</span></p>
+<p class="p1"><span class="s1">let microphone = null;</span></p>
+<p class="p1"><span class="s1">let mediaStream = null;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let running = false;</span></p>
+<p class="p1"><span class="s1">let animationFrame = null;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let audioData = null;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let envelope = 0;</span></p>
+<p class="p1"><span class="s1">let dc = 0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let lastPeakTime = 0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let peaks = [];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">const MAX_PEAKS = 60;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">Pomocné funkce</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function median(values) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (values.length === 0)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return 0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const a = [...values].sort((a,b) =&gt; a-b);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return a[Math.floor(a.length / 2)];</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function setStatus(text) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>statusElement.textContent = text;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">Reset měření</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function resetMeasurement() {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>peaks = [];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>lastPeakTime = 0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>rateElement.textContent = "—";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>beatElement.textContent = "—";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>signalElement.textContent = "—";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>qualityElement.textContent = "—";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>drawGraph([]);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">Výpočet výsledků</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function calculateResults() {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (peaks.length &lt; 5)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const intervals = [];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (let i = 1; i &lt; peaks.length; i++) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const d =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>peaks[i].time -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>peaks[i - 1].time;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>d &gt;= MIN_INTERVAL &amp;&amp;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>d &lt;= MAX_INTERVAL</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>intervals.push(d);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (intervals.length &lt; 4)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>RATE</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const period = median(intervals);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const rate =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>((period - NOMINAL_PERIOD)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/ NOMINAL_PERIOD)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* 86400</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/ 1000;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>rateElement.textContent =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>(rate &gt;= 0 ? "+" : "") +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>rate.toFixed(1) +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>" s/d";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>BEAT ERROR</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Rozdělíme intervaly na dvě skupiny:</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>TIK → TAK</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>TAK → TIK</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Rozdíl jejich průměrných hodnot</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>odpovídá beat error.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const a = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const b = [];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (let i = 0; i &lt; intervals.length; i++) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (i % 2 === 0)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>a.push(intervals[i]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>else</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>b.push(intervals[i]);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (a.length &amp;&amp; b.length) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const beatError =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Math.abs(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>median(a) -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>median(b)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>beatElement.textContent =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>beatError.toFixed(1) +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>" ms";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>SIGNAL</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const recentPeaks =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>peaks.slice(-12);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (recentPeaks.length) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const levels =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>recentPeaks.map(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>p =&gt; p.level</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const level =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>median(levels);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>signalElement.textContent =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Math.round(level * 100) +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>" %";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>QUALITY</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let good = 0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (const d of intervals) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Math.abs(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>d - NOMINAL_PERIOD</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>) &lt; 30</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>good++;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const quality =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Math.round(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>100 *</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>good /</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>intervals.length</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>qualityElement.textContent =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>quality + " %";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Stav detekce</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>------------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (quality &gt; 80) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>setStatus(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>"Signál OK — pravidelné tikání detekováno."</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>else {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>setStatus(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>"Naslouchám… hledám pravidelný signál."</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">Detekce špiček</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function detectPeak(samples) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const now =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>performance.now();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Automatický práh.</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Hluk držíme nízko.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const recentLevels =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>samples.slice(-200);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const noise =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>median(recentLevels);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const threshold =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Math.max(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>0.025,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>noise * 2.8</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Hledání lokálního maxima.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let i = 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>i &lt; samples.length - 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>i++</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const x = samples[i];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (x &lt; threshold)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>continue;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (x &lt; samples[i-1])</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>continue;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (x &lt; samples[i+1])</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>continue;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Nebereme několik špiček</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>jednoho tiknutí.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>now - lastPeakTime &lt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>MIN_INTERVAL</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>continue;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Kandidát na tik/tak</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastPeakTime = now;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const peak = {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>time: now,</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>level:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>Math.min(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>1,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>x * 3</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>peaks.push(peak);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>peaks.length &gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>MAX_PEAKS</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>peaks.shift();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>calculateResults();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>break;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">Zpracování mikrofonu</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function processAudio() {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (!running)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>analyser.getFloatTimeDomainData(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audioData</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const samples = [];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let i = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>i &lt; audioData.length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>i++</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const raw =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>audioData[i];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Odstranění pomalé DC složky</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>dc =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>dc * 0.995 +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>raw * 0.005;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const highPass =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>raw - dc;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Absolutní hodnota</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const rectified =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Math.abs(highPass);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Obálka signálu</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>--------------------------------------</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>envelope =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>envelope * 0.88 +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>rectified * 0.12;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Zesílení pouze pro zobrazení</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const display =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Math.min(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>1,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>envelope * 8</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>samples.push(display);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>detectPeak(samples);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>drawGraph(samples);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>animationFrame =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>requestAnimationFrame(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>processAudio</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">Graf</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function drawGraph(samples) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const rect =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>graph.getBoundingClientRect();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const dpr =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>window.devicePixelRatio || 1;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>graph.width !==</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>rect.width * dpr</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>graph.width =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>rect.width * dpr;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>graph.height =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>rect.height * dpr;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.scale(dpr,dpr);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const width =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>rect.width;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const height =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>rect.height;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Pozadí</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.fillStyle =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"#050505";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.fillRect(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>0,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>0,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>height</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Mřížka</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.strokeStyle =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"#222";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.lineWidth = 1;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let y = 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>y &lt; 5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>y++</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const yy =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>y * height / 5;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.beginPath();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.moveTo(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>0,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>yy</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.lineTo(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>yy</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.stroke();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Obálka zvuku</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (samples.length &gt; 1) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.strokeStyle =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>"#ddd";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.lineWidth = 1.5;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.beginPath();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>for (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let i = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>i &lt; samples.length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>i++</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const x =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>i *</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width /</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>samples.length;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const y =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>height -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>10 -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>samples[i] *</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>(height - 20);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (i === 0)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>ctx.moveTo(x,y);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>ctx.lineTo(x,y);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.stroke();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Detekované impulzy</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const now =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>performance.now();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const WINDOW = 6000;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const p of peaks</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const age =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>now - p.time;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>age &lt; 0 ||</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>age &gt; WINDOW</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>continue;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const x =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>age /</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>WINDOW *</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const y =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>10 -</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>p.level *</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>(height - 20);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.fillStyle =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>"#fff";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.beginPath();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.arc(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>x,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>y,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>4,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>0,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Math.PI * 2</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.fill();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Cílový interval</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.fillStyle =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"#777";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.font =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"12px Arial";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.fillText(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"14 000 A/h · 257,14 ms",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>10,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>18</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">START</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">startButton.onclick =</span></p>
+<p class="p1"><span class="s1">async function() {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>try {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Povolení mikrofonu.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>mediaStream =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>await navigator</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.mediaDevices</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.getUserMedia({</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>audio: {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>echoCancellation: false,</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>noiseSuppression: false,</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>autoGainControl: false</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>AudioContext</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audioContext =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>new (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.AudioContext ||</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.webkitAudioContext</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>)();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Mikrofon</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>microphone =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>audioContext</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.createMediaStreamSource(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>mediaStream</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Analyser</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>analyser =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>audioContext</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.createAnalyser();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>analyser.fftSize =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>1024;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>analyser.smoothingTimeConstant =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>microphone.connect(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>analyser</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audioData =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>new Float32Array(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>analyser.fftSize</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/*</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Reset</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>resetMeasurement();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>envelope = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>dc = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastPeakTime = 0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>running = true;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>startButton.disabled =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>true;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>stopButton.disabled =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>false;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>setStatus(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>"Mikrofon běží. Přilož telefon k hodinám a čekej na tikání…"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>processAudio();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>catch(error) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>setStatus(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>"Nelze spustit mikrofon: " +</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>error.message</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">STOP</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">stopButton.onclick =</span></p>
+<p class="p1"><span class="s1">function() {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>running = false;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (animationFrame) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>cancelAnimationFrame(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>animationFrame</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (mediaStream) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>mediaStream</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.getTracks()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.forEach(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>track =&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>track.stop()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (audioContext) {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audioContext.close();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>startButton.disabled =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>false;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>stopButton.disabled =</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>true;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>setStatus(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"Měření zastaveno."</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">RESET</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">*/</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">resetButton.onclick =</span></p>
+<p class="p1"><span class="s1">function() {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>resetMeasurement();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>setStatus(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"Měření vynulováno."</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/*</span></p>
+<p class="p1"><span class="s1">----------------------------------------------------------</span></p>
+<p class="p1"><span class="s1">Inicializa</span></p>
+</body>
+</html>
